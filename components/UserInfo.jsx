@@ -21,7 +21,7 @@ export default function UserInfo() {
           Log Out
         </button>
       </div>
-      <Link href="/addcontact">
+      <Link href="/addContact">
         <button className="bg-blue-500 text-white font-bold px-6 py-2 mt-3">
           Add Contact
         </button>
