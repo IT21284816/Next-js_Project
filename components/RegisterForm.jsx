@@ -76,17 +76,17 @@ export default function RegisterForm() {
         <h1 className="text-4xl font-bold my-10">Register Now !</h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-10">
-          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
+          <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="e-mail"
           />
-          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
+          <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="password"
           />
-          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
+          <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setConfirmPassword(e.target.value)}
             type="password"
             placeholder="confirm password"
@@ -105,15 +105,11 @@ export default function RegisterForm() {
            <span className="underline">&lt; Back to Login</span>
           </Link>
         </form>
+        </div>
       </div>
-    </div>
 
 
-          <Link href="/home">
-        <button className="bg-blue-500 text-white font-bold px-6 py-2 mt-3">
-          Add Contact
-        </button>
-          </Link>
+         
         </div>
       </div>
       <div className="w-2/5 min-h-screen" style={{ backgroundImage: 'url("/image.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>

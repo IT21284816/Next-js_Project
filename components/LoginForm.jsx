@@ -51,13 +51,13 @@ export default function LoginForm() {
         </div>
 
         
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6 ">
-          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
+        <form onSubmit={handleSubmit} className="flex flex-col gap-8 ">
+          <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder="e-mail"
           />
-          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
+          <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="password"
