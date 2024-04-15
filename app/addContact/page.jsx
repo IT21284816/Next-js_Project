@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { AiOutlineLogout } from 'react-icons/ai'; // Import the AiOutlineLogout icon
 
 export default function AddContact() {
   const [name, setName] = useState("");
@@ -38,60 +39,105 @@ export default function AddContact() {
     }
   };
 
+  const signOut = () => {
+    // Your sign out logic goes here
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <input
-        onChange={(e) => setName(e.target.value)}
-        value={name}
-        className="border border-slate-500 px-8 py-2"
-        type="text"
-        placeholder="Full name"
-      />
+    <div className="flex h-screen">
+      <div className="relative overflow-hidden w-full h-full" style={{ backgroundImage: 'url("/image.png")', backgroundSize: '50%', backgroundPosition: 'center' }}>
+        <div style={{ position: 'absolute', top: '100%', left: '20%', rotate:'25.63deg', transform: 'translate(-50%, -50%)', width: '150%', height: '150%', borderRadius: '50%', backgroundColor: '#083F46', opacity: '1.0', pointerEvents: 'none' }}></div>
 
-      <input
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-        className="border border-slate-500 px-8 py-2"
-        type="text"
-        placeholder="e-mail"
-      />
+        <div className="relative z-10">
+          {/* Content for the left half */}
 
-      <input
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        value={phone}
-        className="border border-slate-500 px-8 py-2"
-        type="text"
-        placeholder="phone number"
-      />
+          <div className="ml-[20%] mt-12">
+            <img src="/logo2.png" alt="twc logo" className="w-[90px] mb-2 " />
+            <img src="/contacts portal.png" alt="contact" className="w-[140px]" />
+          </div>
 
-      <div>
-        Gender:
-        <label>
-          <input
-            type="radio"
-            value="male"
-            checked={gender === "male"}
-            onChange={() => setGender("male")}
-          />{" "}
-          Male
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="female"
-            checked={gender === "female"}
-            onChange={() => setGender("female")}
-          />{" "}
-          Female
-        </label>
+          <div className="grid h-screen justify-start items-center ml-[20%] my-20">
+
+            <div className=" text-white mb-auto" >
+              <h1 className="text-5xl font-bold my-5 ">New Contact</h1> 
+          
+              <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-10">
+                <div className="space-x-10">
+                  <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}              
+                    type="text"
+                    placeholder="Full name"
+                  />
+
+                  <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}              
+                    type="text"
+                    placeholder="e-mail"
+                  />
+                </div>
+
+                <div className="flex flex-row space-y-4">
+                  <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    value={phone}              
+                    type="text"
+                    placeholder="phone number"
+                  />
+
+                  <div className="ml-12 flex flex-row space-x-16">
+                    <span>Gender:</span>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        value="male"
+                        checked={gender === "male"}
+                        onChange={() => setGender("male")}
+                        className="absolute opacity-0 h-0 w-0"
+                      />
+                      <span className="h-5 w-5 flex items-center justify-center border border-gray-300 rounded-full mr-2">
+                        <span className={`h-3 w-3 rounded-full ${gender === "male" ? "bg-blue-500" : ""}`}></span>
+                      </span>
+                      Male
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        value="female"
+                        checked={gender === "female"}
+                        onChange={() => setGender("female")}
+                        className="absolute opacity-0 h-0 w-0"
+                      />
+                      <span className="h-5 w-5 flex items-center justify-center border border-gray-300 rounded-full mr-2">
+                        <span className={`h-3 w-3 rounded-full ${gender === "female" ? "bg-pink-500" : ""}`}></span>
+                      </span>
+                      Female
+                    </label>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-none font-bold text-white py-3 px-10 w-fit border border-white rounded-[30px] mt-20"
+                >
+                  add your first contact
+                </button>
+              </form>
+
+              <div className="flex mt-10">
+                <button
+                  onClick={() => signOut()}
+                  className="flex items-center bg-none text-white text-xl font-semibold mb-[15%] ml-auto underline"
+                > 
+                  <AiOutlineLogout className="w-10 h-10 transform scale-x-[-1]" /> 
+                  <span className="ml-2">logout</span>
+                </button>
+              </div>
+            </div>
+          </div>            
+        </div>
       </div>
-
-      <button
-        type="submit"
-        className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
-      >
-        Add Contact
-      </button>
-    </form>
+    </div>
   );
 }

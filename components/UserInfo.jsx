@@ -43,8 +43,7 @@ export default function UserInfo() {
       <div className="flex">
       <button
         onClick={() => signOut()}
-        className="flex items-center bg-none text-white text-xl font-semibold mb-[15%] ml-auto underline"
-      > 
+        className="flex items-center bg-none text-white text-xl font-semibold mb-[15%] ml-auto underline"> 
         <AiOutlineLogout className="w-10 h-10 transform scale-x-[-1]" /> 
         <span className="ml-2">logout</span>
       </button>
