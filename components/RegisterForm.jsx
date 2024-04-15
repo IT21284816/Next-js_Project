@@ -65,27 +65,33 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="grid place-items-center h-screen">
-      <div className="shadow-lg p-5 rounded-lg border-t-4 border-green-400">
-        <h1 className="text-xl font-bold my-4">Register</h1>
+    <div className="flex">
+      <div className="relative overflow-hidden w-3/5 min-h-screen" style={{ backgroundImage: 'url("/image.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-custom-color" style={{ clipPath: 'circle(100% at 0 50%)' }}></div>
+        <div className="relative z-10">
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-          <input
+
+          <div className="grid h-screen justify-start items-center ml-[10%]">
+      <div className=" text-white ">
+        <h1 className="text-4xl font-bold my-10">Register Now !</h1>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            placeholder="Email"
+            placeholder="e-mail"
           />
-          <input
+          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            placeholder="Password"
+            placeholder="password"
           />
-          <input
+          <input className="rounded-[20px] bg-white placeholder-[#083F46] font-semibold"
             onChange={(e) => setConfirmPassword(e.target.value)}
             type="password"
-            placeholder="Confirm Password"
+            placeholder="confirm password"
           />
-          <button className="bg-green-600 text-white font-bold cursor-pointer px-6 py-2">
+          <button className="bg-[#083F46] rounded-[20px] w-[120px] h-[40px] text-white font-semibold cursor-pointer px-6 py-2  border border-white">
             Register
           </button>
 
@@ -95,10 +101,29 @@ export default function RegisterForm() {
             </div>
           )}
 
-          <Link className="text-sm mt-3 text-right" href={"/"}>
-            Already have an account? <span className="underline">Login</span>
+          <Link className="text-sm mt-3 text-left text-[18px] ml-4" href={"/"}>
+           <span className="underline">&lt; Back to Login</span>
           </Link>
         </form>
+      </div>
+    </div>
+
+
+          <Link href="/home">
+        <button className="bg-blue-500 text-white font-bold px-6 py-2 mt-3">
+          Add Contact
+        </button>
+          </Link>
+        </div>
+      </div>
+      <div className="w-2/5 min-h-screen" style={{ backgroundImage: 'url("/image.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        
+
+        <div className="flex flex-col justify-center items-start h-screen gap-4 ml-5">
+            <img src="/logo.png" alt="twc logo" className="mb-0 w-[150px]" />
+            <img src="/contacts.png" alt="contact" className="mt-0 w-[200px]" />
+        </div>
+
       </div>
     </div>
   );
