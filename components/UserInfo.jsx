@@ -3,6 +3,7 @@
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { AiOutlineLogout } from "react-icons/ai";
 
 
 export default function UserInfo() {
@@ -34,17 +35,20 @@ export default function UserInfo() {
         </div>
 
         <Link href="/addContact">
-        <button className="bg-blue-500 text-white font-bold px-6 py-2 mb-auto">
+        <button className="bg-none rounded-[20px] w-auto h-auto text-white font-semibold cursor-pointer px-6 py-2  border border-white">
         add your first contact
         </button>
       </Link>
 
+      <div className="flex">
       <button
-          onClick={() => signOut()}
-          className="bg-red-500 text-white font-bold px-6 py-2 mb-auto"
-        >
-          Log Out
-        </button>
+        onClick={() => signOut()}
+        className="flex items-center bg-none text-white text-xl font-semibold mb-[15%] ml-auto underline"
+      > 
+        <AiOutlineLogout className="w-10 h-10 transform scale-x-[-1]" /> 
+        <span className="ml-2">logout</span>
+      </button>
+    </div>
 
 
             
