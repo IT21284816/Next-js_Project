@@ -51,12 +51,12 @@ export default function AddContact() {
         <div className="relative z-10">
           {/* Content for the left half */}
 
-          <div className="ml-[20%] mt-12">
+          <div className="ml-[22%] mt-12">
             <img src="/logo2.png" alt="twc logo" className="w-[90px] mb-2 " />
             <img src="/contacts portal.png" alt="contact" className="w-[140px]" />
           </div>
 
-          <div className="grid h-screen justify-start items-center ml-[20%] my-20">
+          <div className="grid h-screen justify-start items-center ml-[22%] my-20">
 
             <div className=" text-white mb-auto" >
               <h1 className="text-5xl font-bold my-5 ">New Contact</h1> 
