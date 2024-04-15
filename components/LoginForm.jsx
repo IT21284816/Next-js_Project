@@ -87,6 +87,15 @@ export default function LoginForm() {
       </div>
       <div className="w-2/5 min-h-screen" style={{ backgroundImage: 'url("/image.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         {/* Content for the right half */}
+        
+        <div className="flex flex-col justify-center items-start h-screen gap-4 ml-5">
+            <img src="/logo.png" alt="twc logo" className="mb-0 w-[150px]" />
+            <img src="/contacts.png" alt="contact" className="mt-0 w-[200px]" />
+        </div>
+
+
+        
+
       </div>
     </div>
   );
