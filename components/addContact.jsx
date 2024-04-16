@@ -1,40 +1,47 @@
 "use client";
 
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { AiOutlineLogout } from 'react-icons/ai';
+import { useSession } from "next-auth/react";
+import { AiOutlineLogout } from 'react-icons/ai'; // Import the AiOutlineLogout icon
 
-export default function EditContactForm({ id, name, email, phone , gender }) {
-  
-  const [newName, setNewName] = useState(name);
-  const [newEmail, setNewEmail] = useState(email);
-  const [newPhone, setNewPhone] = useState(phone);
-  const [newGender, setNewGender] = useState(gender);
+export default function AddContact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhoneNumber] = useState("");
+  const [gender, setGender] = useState(""); 
 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!name || !email || !phone || !gender) { 
+      alert("Name, email, phone number, and gender are required."); 
+      return;
+    }
+
     try {
-      const res = await fetch(`http://localhost:3000/api/contacts/${id}`, {
-        method: "PUT",
+      const res = await fetch("http://localhost:3000/api/contacts", {
+        method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ newName, newEmail, newPhone, newGender }),
+        body: JSON.stringify({ name, email, phone, gender }), 
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to update contact");
+      if (res.ok) {
+        router.push("/contactList");
+      } else {
+        throw new Error("Failed to create a contact");
       }
-
-      router.refresh();
-      router.push("/contactList");
     } catch (error) {
       console.log(error);
     }
   };
+
+  const { data: session } = useSession();
 
   return (
     <div className="flex h-screen">
@@ -52,45 +59,41 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
           <div className="grid h-screen justify-start items-center ml-[22%] my-20">
 
             <div className=" text-white mb-auto" >
-              <h1 className="text-5xl font-bold my-5 ">Contact Update</h1> 
+              <h1 className="text-5xl font-bold my-5 ">New Contact</h1> 
           
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-10">
+                <div className="space-x-10">
+                  <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}              
+                    type="text"
+                    placeholder="Full name"
+                  />
 
-              <div className="space-x-10">
-                <input
-                  onChange={(e) => setNewName(e.target.value)}
-                  value={newName}
-                  className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
-                  type="text"
-                  placeholder="Full name"
-                />
-
-                <input
-                  onChange={(e) => setNewEmail(e.target.value)}
-                  value={newEmail}
-                  className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
-                  type="text"
-                  placeholder="e-mail"
-                />
+                  <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}              
+                    type="text"
+                    placeholder="e-mail"
+                  />
                 </div>
 
                 <div className="flex flex-row space-y-4">
-                <input
-                  onChange={(e) => setNewPhone(e.target.value)}
-                  value={newPhone}
-                  className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
-                  type="text"
-                  placeholder="phone number"
-                />
+                  <input className="rounded-[20px] text-black bg-white placeholder-[#083F46] font-semibold"
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    value={phone}              
+                    type="text"
+                    placeholder="phone number"
+                  />
 
-<div className="ml-12 flex flex-row space-x-16">
+                  <div className="ml-12 flex flex-row space-x-16">
                     <span>Gender:</span>
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
                         value="male"
                         checked={gender === "male"}
-                        onChange={() => setNewGender("male")}
+                        onChange={() => setGender("male")}
                         className="absolute opacity-0 h-0 w-0"
                       />
                       <span className="h-5 w-5 flex items-center justify-center border border-gray-300 rounded-full mr-2">
@@ -103,7 +106,7 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
                         type="radio"
                         value="female"
                         checked={gender === "female"}
-                        onChange={() => setNewGender("female")}
+                        onChange={() => setGender("female")}
                         className="absolute opacity-0 h-0 w-0"
                       />
                       <span className="h-5 w-5 flex items-center justify-center border border-gray-300 rounded-full mr-2">
@@ -114,8 +117,11 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
                   </div>
                 </div>
 
-                <button className="bg-none font-bold text-white py-3 px-10 w-fit border border-white rounded-[30px] mt-20">
-                  update contact
+                <button
+                  type="submit"
+                  className="bg-none font-bold text-white py-3 px-10 w-fit border border-white rounded-[30px] mt-20"
+                >
+                  add your first contact
                 </button>
               </form>
 
