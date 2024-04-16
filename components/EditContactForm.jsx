@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineLogout } from 'react-icons/ai';
 
+
 export default function EditContactForm({ id, name, email, phone , gender }) {
   
   const [newName, setNewName] = useState(name);
@@ -36,6 +37,9 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
     }
   };
 
+  const signOut = () => {
+    window.location.href = '/';
+  };
   return (
     <div className="flex h-screen">
       <div className="relative overflow-hidden w-full h-full" style={{ backgroundImage: 'url("/image.png")', backgroundSize: '50%', backgroundPosition: 'center' }}>
@@ -52,7 +56,7 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
           <div className="grid h-screen justify-start items-center ml-[22%] my-20">
 
             <div className=" text-white mb-auto" >
-              <h1 className="text-5xl font-bold my-5 ">Contact Update</h1> 
+              <h1 className="text-5xl font-bold my-10 ">Contact Update</h1> 
           
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
 
@@ -74,7 +78,7 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
                 />
                 </div>
 
-                <div className="flex flex-row space-y-4">
+                <div className="flex flex-row space-y-4 mt-5">
                 <input
                   onChange={(e) => setNewPhone(e.target.value)}
                   value={newPhone}
