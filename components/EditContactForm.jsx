@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { AiOutlineLogout } from 'react-icons/ai';
 
 export default function EditContactForm({ id, name, email, phone , gender }) {
   
@@ -29,14 +30,31 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
       }
 
       router.refresh();
-      router.push("/");
+      router.push("/contactList");
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+    <div className="flex h-screen">
+      <div className="relative overflow-hidden w-full h-full" style={{ backgroundImage: 'url("/image.png")', backgroundSize: '50%', backgroundPosition: 'center' }}>
+        <div style={{ position: 'absolute', top: '100%', left: '20%', rotate:'25.63deg', transform: 'translate(-50%, -50%)', width: '150%', height: '150%', borderRadius: '50%', backgroundColor: '#083F46', opacity: '1.0', pointerEvents: 'none' }}></div>
+
+        <div className="relative z-10">
+          {/* Content for the left half */}
+
+          <div className="ml-[22%] mt-12">
+            <img src="/logo2.png" alt="twc logo" className="w-[90px] mb-2 " />
+            <img src="/contacts portal.png" alt="contact" className="w-[140px]" />
+          </div>
+
+          <div className="grid h-screen justify-start items-center ml-[22%] my-20">
+
+            <div className=" text-white mb-auto" >
+              <h1 className="text-5xl font-bold my-5 ">New Contact</h1> 
+          
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
 
       <input
         onChange={(e) => setNewName(e.target.value)}
@@ -88,5 +106,20 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
         Update Topic
       </button>
     </form>
+
+              <div className="flex mt-10">
+                <button
+                  onClick={() => signOut()}
+                  className="flex items-center bg-none text-white text-xl font-semibold mb-[15%] ml-auto underline"
+                > 
+                  <AiOutlineLogout className="w-10 h-10 transform scale-x-[-1]" /> 
+                  <span className="ml-2">logout</span>
+                </button>
+              </div>
+            </div>
+          </div>            
+        </div>
+      </div>
+    </div>
   );
 }
