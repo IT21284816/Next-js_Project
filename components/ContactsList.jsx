@@ -26,7 +26,7 @@ export default async function ContactsList() {
 
   // Define the signOut function
   const signOut = () => {
-    // Your sign out logic goes here
+    window.location.href = '/';
   };
 
   return (
