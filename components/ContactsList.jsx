@@ -30,7 +30,7 @@ export default async function ContactsList() {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-screen">
       <div
         className="relative overflow-hidden w-full h-full"
         style={{
@@ -42,12 +42,12 @@ export default async function ContactsList() {
         <div
           style={{
             position: "absolute",
-            top: "100%",
+            top: "70%",
             left: "20%",
             rotate: "25.63deg",
             transform: "translate(-50%, -50%)",
             width: "150%",
-            height: "150%",
+            height: "110%",
             borderRadius: "50%",
             backgroundColor: "#083F46",
             opacity: "1.0",
