@@ -49,8 +49,10 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
           {/* Content for the left half */}
 
           <div className="ml-[22%] mt-12">
+          <a href="/">
             <img src="/logo2.png" alt="twc logo" className="w-[90px] mb-2 " />
             <img src="/contacts portal.png" alt="contact" className="w-[140px]" />
+            </a>
           </div>
 
           <div className="grid h-screen justify-start items-center ml-[22%] my-20">

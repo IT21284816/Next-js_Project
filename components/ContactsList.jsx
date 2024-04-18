@@ -59,12 +59,14 @@ export default async function ContactsList() {
           {/* Content for the left half */}
 
           <div className="ml-[25%] mt-12">
+          <a href="/">
             <img src="/logo2.png" alt="twc logo" className="w-[90px] mb-2 " />
             <img
               src="/contacts portal.png"
               alt="contact"
               className="w-[140px]"
             />
+            </a>
           </div>
 
           <div className="grid h-screen justify-start items-center ml-[25%] my-20">
