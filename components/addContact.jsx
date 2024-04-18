@@ -12,7 +12,7 @@ export default function AddContact() {
   const [email, setEmail] = useState("");
   const [phone, setPhoneNumber] = useState("");
   const [gender, setGender] = useState(""); 
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false); // State for showing success popup
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false); 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -135,7 +135,7 @@ export default function AddContact() {
               {showSuccessPopup && (
                 <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-20 backdrop-filter backdrop-blur-lg">
                   <div className="bg-white py-6 px-14 rounded-[20px] text-center">
-                    <p className="text-[#083F46] font-semibold mb-6">Your contact has been deleted successfully!</p>
+                    <p className="text-[#083F46] font-semibold mb-6">Your contact has been added successfully!</p>
                     <button onClick={handleOkButtonClick} className="mr-4 bg-[#083F46] text-white py-2 px-6 rounded-[20px]">Okay</button>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export default function AddContact() {
                   onClick={() => signOut()}
                   className="flex items-center bg-none text-white text-xl font-semibold mb-[15%] ml-auto underline"
                 > 
-                  <AiOutlineLogout className="w-10 h-10 transform scale-x-[-1]" /> 
+                  <AiOutlineLogout className="w-10 h-10 " /> 
                   <span className="ml-2">logout</span>
                 </button>
               </div>

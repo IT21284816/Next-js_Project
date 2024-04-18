@@ -28,7 +28,7 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
       });
 
       if (res.ok) {
-        setShowSuccessMessage(true); // Show success popup
+        setShowSuccessMessage(true); 
       } else {
         throw new Error("Failed to create a contact");
       }
@@ -38,8 +38,8 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
   };
 
   const handleOkButtonClick = () => {
-    setShowSuccessMessage(false); // Close the popup
-    router.push("/contactList"); // Redirect to contact list page
+    setShowSuccessMessage(false); 
+    router.push("/contactList"); 
   };
 
   const signOut = () => {
