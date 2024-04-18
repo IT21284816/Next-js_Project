@@ -48,14 +48,6 @@ export default function ContactsList() {
     window.location.href = '/';
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   return (
     <div className="flex min-h-screen">
       <div className="relative overflow-hidden w-full h-full" style={{ backgroundImage: 'url("/image.png")', backgroundSize: '50%', backgroundPosition: 'center' }}>
@@ -98,7 +90,9 @@ export default function ContactsList() {
                         <Link href={`/editContact/${t._id}`}>
                           <HiPencilAlt size={24} />
                         </Link>
-                        <RemoveBtn id={t._id} />
+                        
+                        <RemoveBtn id={t._id} name={t.name} />
+
                       </td>
                     </tr>
                   ))}
