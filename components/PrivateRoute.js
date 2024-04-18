@@ -9,15 +9,14 @@ const PrivateRoute = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (status === 'loading') return; // Don't do anything while loading
-
-    // If user is not authenticated, redirect to login page
+    if (status === 'loading') return; 
+    
     if (!session) {
       router.replace('/');
     }
   }, [session, status, router]);
 
-  // If session is loading or user is authenticated, render children
+ 
   return status === 'loading' ? null : children;
 };
 

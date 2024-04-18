@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { AiOutlineLogout } from 'react-icons/ai'; // Import the AiOutlineLogout icon
+import { AiOutlineLogout } from 'react-icons/ai'; 
 
 export default function AddContact() {
   const [name, setName] = useState("");
@@ -49,8 +49,7 @@ export default function AddContact() {
       <div className="relative overflow-hidden w-full h-full" style={{ backgroundImage: 'url("/image.png")', backgroundSize: '50%', backgroundPosition: 'center' }}>
         <div style={{ position: 'absolute', top: '100%', left: '20%', rotate:'25.63deg', transform: 'translate(-50%, -50%)', width: '150%', height: '150%', borderRadius: '50%', backgroundColor: '#083F46', opacity: '1.0', pointerEvents: 'none' }}></div>
 
-        <div className="relative z-10">
-          {/* Content for the left half */}
+        <div className="relative z-10">        
 
           <div className="ml-[22%] mt-12">
           <a href="/">

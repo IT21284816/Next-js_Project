@@ -15,9 +15,7 @@ export default function UserInfo() {
       <div className="relative overflow-hidden w-full h-full" style={{ backgroundImage: 'url("/image.png")', backgroundSize: '50%', backgroundPosition: 'center' }}>
         <div style={{ position: 'absolute', top: '100%', left: '20%', rotate:'25.63deg', transform: 'translate(-50%, -50%)', width: '150%', height: '150%', borderRadius: '50%', backgroundColor: '#083F46', opacity: '1.0', pointerEvents: 'none' }}></div>
 
-        <div className="relative z-10">
-          {/* Content for the left half */}
-
+        <div className="relative z-10">          
             <div className="ml-[22%] mt-12">
             <Image src="/logo2.png" alt="twc logo" width={90} height={90} className="mb-2" />
               <Image src="/contacts portal.png" alt="contact" width={140} height={140} />            

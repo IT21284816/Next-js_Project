@@ -38,8 +38,7 @@ export default function LoginForm() {
     <div className="flex">
       <div className="relative overflow-hidden w-3/5 min-h-screen" style={{ backgroundImage: 'url("/image.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-custom-color" style={{ clipPath: 'circle(100% at 0 50%)' }}></div>
-        <div className="relative z-10">
-          {/* Content for the left half */}
+        <div className="relative z-10">         
           
           <div className="grid h-screen justify-start items-center ml-[10%]">
       <div className=" text-white mb-5" >
@@ -86,7 +85,7 @@ export default function LoginForm() {
         </div>
       </div>
       <div className="w-2/5 min-h-screen" style={{ backgroundImage: 'url("/image.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        {/* Content for the right half */}
+        
         
         <div className="flex flex-col justify-center items-start h-screen gap-4 ml-5">
             <img src="/logo.png" alt="twc logo" className="mb-0 w-[150px]" />
