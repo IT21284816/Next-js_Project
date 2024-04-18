@@ -33,7 +33,7 @@ export default function AddContact() {
       });
 
       if (res.ok) {
-        setShowSuccessPopup(true); // Show success popup
+        setShowSuccessPopup(true); 
       } else {
         throw new Error("Failed to create a contact");
       }
@@ -43,8 +43,8 @@ export default function AddContact() {
   };
 
   const handleOkButtonClick = () => {
-    setShowSuccessPopup(false); // Close the popup
-    router.push("/contactList"); // Redirect to contact list page
+    setShowSuccessPopup(false); 
+    router.push("/contactList"); 
   };
 
   const { data: session } = useSession();

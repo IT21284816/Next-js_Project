@@ -5,13 +5,13 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AiOutlineLogout } from 'react-icons/ai';
 
-
 export default function EditContactForm({ id, name, email, phone , gender }) {
   
   const [newName, setNewName] = useState(name);
   const [newEmail, setNewEmail] = useState(email);
   const [newPhone, setNewPhone] = useState(phone);
   const [newGender, setNewGender] = useState(gender);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const router = useRouter();
 
@@ -27,20 +27,25 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
         body: JSON.stringify({ newName, newEmail, newPhone, newGender }),
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to update contact");
+      if (res.ok) {
+        setShowSuccessMessage(true); // Show success popup
+      } else {
+        throw new Error("Failed to create a contact");
       }
-
-      router.refresh();
-      router.push("/contactList");
     } catch (error) {
       console.log(error);
     }
   };
 
+  const handleOkButtonClick = () => {
+    setShowSuccessMessage(false); // Close the popup
+    router.push("/contactList"); // Redirect to contact list page
+  };
+
   const signOut = () => {
     window.location.href = '/';
   };
+
   return (
     <div className="flex h-screen">
       <div className="relative overflow-hidden w-full h-full" style={{ backgroundImage: 'url("/image.png")', backgroundSize: '50%', backgroundPosition: 'center' }}>
@@ -89,18 +94,18 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
                   placeholder="phone number"
                 />
 
-                <div className="ml-12 flex flex-row space-x-16">
+<div className="ml-12 flex flex-row space-x-16">
                     <span>Gender:</span>
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
                         value="male"
-                        checked={gender === "male"}
+                        checked={newGender === "male"}
                         onChange={() => setNewGender("male")}
                         className="absolute opacity-0 h-0 w-0"
                       />
                       <span className="h-5 w-5 flex items-center justify-center border border-gray-300 rounded-full mr-2">
-                        <span className={`h-3 w-3 rounded-full ${gender === "male" ? "bg-blue-500" : ""}`}></span>
+                        <span className={`h-3 w-3 rounded-full ${newGender === "male" ? "bg-blue-500" : ""}`}></span>
                       </span>
                       Male
                     </label>
@@ -108,12 +113,12 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
                       <input
                         type="radio"
                         value="female"
-                        checked={gender === "female"}
+                        checked={newGender === "female"}
                         onChange={() => setNewGender("female")}
                         className="absolute opacity-0 h-0 w-0"
                       />
                       <span className="h-5 w-5 flex items-center justify-center border border-gray-300 rounded-full mr-2">
-                        <span className={`h-3 w-3 rounded-full ${gender === "female" ? "bg-pink-500" : ""}`}></span>
+                        <span className={`h-3 w-3 rounded-full ${newGender === "female" ? "bg-pink-500" : ""}`}></span>
                       </span>
                       Female
                     </label>
@@ -124,6 +129,15 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
                   update contact
                 </button>
               </form>
+
+              {showSuccessMessage && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="bg-white py-6 px-14 rounded-[20px] text-center">
+                    <p className="text-[#083F46] font-semibold mb-6">Your contact has been updated successfully!</p>
+                    <button onClick={handleOkButtonClick} className="mr-4 bg-[#083F46] text-white py-2 px-6 rounded-[20px]">Okay</button>
+                  </div>
+                </div>
+              )}
 
               <div className="flex mt-10">
                 <button
