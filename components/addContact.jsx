@@ -133,7 +133,7 @@ export default function AddContact() {
               </form>
 
               {showSuccessPopup && (
-                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+                <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-20 backdrop-filter backdrop-blur-lg">
                   <div className="bg-white py-6 px-14 rounded-[20px] text-center">
                     <p className="text-[#083F46] font-semibold mb-6">Your contact has been deleted successfully!</p>
                     <button onClick={handleOkButtonClick} className="mr-4 bg-[#083F46] text-white py-2 px-6 rounded-[20px]">Okay</button>

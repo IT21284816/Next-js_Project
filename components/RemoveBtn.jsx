@@ -30,8 +30,8 @@ export default function RemoveBtn({ id, name }) {
         <HiOutlineTrash size={24} />
       </button>
       {showModal && (
-        <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-80">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+        <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-20 backdrop-filter backdrop-blur-lg">
+          <div className="bg-white p-8 rounded-[20px] shadow-lg">
             <p className="mb-4 font-semibold">Do you want to delete the contact "{name}" ?</p>
             <div className="flex justify-center">
               <button onClick={handleConfirm} className="mr-4 bg-[#083F46] text-white py-2 px-6 rounded-[20px]">
