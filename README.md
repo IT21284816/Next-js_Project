@@ -1,7 +1,7 @@
 Next App
 Login and Contacts Mangement (CRUD) with React & MongoDB
-npm i
-npm run dev
+\ npm i
+\ npm run dev
 
 
 ![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/72721461-d6f6-431b-b47c-eac42f2c378f)
