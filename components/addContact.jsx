@@ -12,7 +12,7 @@ export default function AddContact() {
   const [email, setEmail] = useState("");
   const [phone, setPhoneNumber] = useState("");
   const [gender, setGender] = useState(""); 
-
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false); // State for showing success popup
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -33,13 +33,18 @@ export default function AddContact() {
       });
 
       if (res.ok) {
-        router.push("/contactList");
+        setShowSuccessPopup(true); // Show success popup
       } else {
         throw new Error("Failed to create a contact");
       }
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleOkButtonClick = () => {
+    setShowSuccessPopup(false); // Close the popup
+    router.push("/contactList"); // Redirect to contact list page
   };
 
   const { data: session } = useSession();
@@ -126,6 +131,15 @@ export default function AddContact() {
                   add your first contact
                 </button>
               </form>
+
+              {showSuccessPopup && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="bg-white py-6 px-14 rounded-[20px] text-center">
+                    <p className="text-[#083F46] font-semibold mb-6">Your contact has been deleted successfully!</p>
+                    <button onClick={handleOkButtonClick} className="mr-4 bg-[#083F46] text-white py-2 px-6 rounded-[20px]">Okay</button>
+                  </div>
+                </div>
+              )}
 
               <div className="flex mt-10">
                 <button

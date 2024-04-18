@@ -89,7 +89,7 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
                   placeholder="phone number"
                 />
 
-<div className="ml-12 flex flex-row space-x-16">
+                <div className="ml-12 flex flex-row space-x-16">
                     <span>Gender:</span>
                     <label className="inline-flex items-center">
                       <input
