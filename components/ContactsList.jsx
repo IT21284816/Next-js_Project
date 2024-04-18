@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import RemoveBtn from './RemoveBtn';
 import { HiPencilAlt } from 'react-icons/hi';
 import { FcBusinesswoman, FcBusinessman } from 'react-icons/fc';
@@ -62,8 +63,8 @@ export default function ContactsList() {
         <div className="relative z-10">
           <div className="ml-[25%] mt-12">
             <a href="/">
-              <img src="/logo2.png" alt="twc logo" className="w-[90px] mb-2 " />
-              <img src="/contacts portal.png" alt="contact" className="w-[140px]" />
+            <Image src="/logo2.png" alt="twc logo" width={90} height={90} className="mb-2" />
+              <Image src="/contacts portal.png" alt="contact" width={140} height={140} />            
             </a>
           </div>
           <div className="grid h-screen justify-start items-center ml-[25%] my-20">

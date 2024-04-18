@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AiOutlineLogout } from 'react-icons/ai';
 
@@ -50,8 +51,8 @@ export default function EditContactForm({ id, name, email, phone , gender }) {
 
           <div className="ml-[22%] mt-12">
           <a href="/">
-            <img src="/logo2.png" alt="twc logo" className="w-[90px] mb-2 " />
-            <img src="/contacts portal.png" alt="contact" className="w-[140px]" />
+             <Image src="/logo2.png" alt="twc logo" width={90} height={90} className="mb-2" />
+              <Image src="/contacts portal.png" alt="contact" width={140} height={140} />            
             </a>
           </div>
 
