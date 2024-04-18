@@ -100,7 +100,7 @@ export default function ContactsList() {
               </table>
               <div className="flex mt-20">
                 <button onClick={() => signOut()} className="flex items-center bg-none text-white text-xl font-semibold mb-[10%] ml-auto underline">
-                  <AiOutlineLogout className="w-10 h-10 transform scale-x-[-1]" />
+                  <AiOutlineLogout className="w-10 h-10 " />
                   <span className="ml-2">Logout</span>
                 </button>
               </div>
