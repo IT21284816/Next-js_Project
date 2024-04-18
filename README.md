@@ -12,6 +12,8 @@ npm run dev
 
 ![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/57324250-8fee-4fc4-a2c8-78a0633afcb8)
 
+![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/85d07fdb-efe5-4e64-b01d-db3b353739ee)
+
 ![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/74ca8159-2779-4c51-8443-db6d96e889e5)
 
 ![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/9aeeedb0-0076-4383-9e0e-65eb47a81d36)
