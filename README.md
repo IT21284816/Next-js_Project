@@ -4,7 +4,7 @@ npm i
 npm run dev
 
 
-![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/4847d429-0ff5-43db-b00b-10391fbe73be)
+![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/72721461-d6f6-431b-b47c-eac42f2c378f)
 
 ![image](https://github.com/IT21284816/Next-js_Project/assets/99232799/302e8e10-53ec-416c-9915-056166600e9c)
 
